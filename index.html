@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لماذا يخطئ مدراء الائتمان في فهم حسابات المقاولات؟</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@500;600;700&family=Cairo:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#081226;
+    --bg-panel:#0d1d38;
+    --bg-panel-2:#102347;
+    --gold:#c9a24a;
+    --gold-soft:#e3c576;
+    --ink:#e9eefb;
+    --ink-muted:#9fb0cf;
+    --ink-dim:#6d80a3;
+    --line:rgba(201,162,74,0.22);
+    --line-soft:rgba(159,176,207,0.14);
+    --green:#5fae8a;
+    --red:#c4715c;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(201,162,74,0.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(95,174,138,0.06), transparent 55%),
+      var(--bg-deep);
+    color:var(--ink);
+    font-family:'Cairo','Tajawal',sans-serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:rgba(201,162,74,0.35);color:#fff;}
+
+  .ledger-rule{
+    height:1px;
+    background:linear-gradient(to left, transparent, var(--line) 15%, var(--line) 85%, transparent);
+  }
+
+  /* ===== Masthead ===== */
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    padding:18px 6vw 14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:12px;
+  }
+  .brand-mark{
+    width:38px;height:38px;border:1.5px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Markazi Text',serif;font-weight:700;color:var(--gold-soft);
+    font-size:18px;
+    flex-shrink:0;
+  }
+  .brand-text{font-size:13px;color:var(--ink-muted);letter-spacing:.3px;}
+  .brand-text b{color:var(--gold-soft);font-weight:600;}
+  .masthead-meta{
+    font-size:12.5px;color:var(--ink-dim);
+    display:flex;gap:18px;
+  }
+  .masthead-meta span{position:relative;}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:64px 6vw 50px;
+    max-width:980px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;color:var(--gold-soft);
+    border:1px solid var(--line);
+    padding:6px 18px;border-radius:30px;
+    background:rgba(201,162,74,0.06);
+    margin-bottom:28px;
+  }
+  .kicker::before{content:"◆";font-size:9px;color:var(--gold);}
+  h1.title{
+    font-family:'Markazi Text',serif;
+    font-weight:700;
+    font-size:clamp(34px,5.2vw,58px);
+    line-height:1.32;
+    margin:0 0 22px;
+    color:#fff;
+  }
+  h1.title em{
+    font-style:normal;
+    color:var(--gold-soft);
+  }
+  .subtitle{
+    font-size:clamp(17px,2vw,21px);
+    color:var(--ink-muted);
+    max-width:760px;
+    margin:0 auto 34px;
+    font-weight:400;
+  }
+  .abstract-box{
+    text-align:right;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px 30px;
+    margin-top:10px;
+    font-size:15px;
+    color:var(--ink-muted);
+  }
+  .abstract-box .label{
+    font-size:11.5px;
+    letter-spacing:1px;
+    color:var(--gold);
+    display:block;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+
+  /* ===== Container ===== */
+  .wrap{max-width:880px;margin:0 auto;padding:10px 6vw 0;}
+
+  /* ===== Section numbering ===== */
+  .section{padding:64px 0 8px;border-top:1px solid var(--line-soft);}
+  .section:first-of-type{border-top:none;}
+  .section-head{
+    display:flex;align-items:baseline;gap:16px;
+    margin-bottom:26px;
+  }
+  .section-num{
+    font-family:'Markazi Text',serif;
+    font-size:46px;font-weight:700;
+    color:transparent;
+    -webkit-text-stroke:1.4px var(--gold);
+    line-height:1;
+    flex-shrink:0;
+    min-width:58px;
+  }
+  .section-head h2{
+    font-family:'Markazi Text',serif;
+    font-size:clamp(24px,3.2vw,32px);
+    font-weight:700;
+    color:#fff;
+    margin:0;
+    line-height:1.4;
+  }
+  .section p{
+    font-size:16.5px;
+    color:#cdd8ee;
+    margin:0 0 20px;
+  }
+  .section p b, .section li b{color:var(--gold-soft);font-weight:700;}
+  .section h3{
+    font-size:18.5px;
+    color:var(--gold-soft);
+    margin:34px 0 14px;
+    font-weight:700;
+    border-right:3px solid var(--gold);
+    padding-right:14px;
+  }
+  .section ul, .section ol{
+    margin:0 0 22px;
+    padding-right:22px;
+    color:#cdd8ee;
+    font-size:16px;
+  }
+  .section li{margin-bottom:11px;}
+
+  /* ===== Pull quote / stamp ===== */
+  .stamp-quote{
+    position:relative;
+    background:linear-gradient(135deg, rgba(201,162,74,0.07), rgba(201,162,74,0.02));
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px 34px;
+    margin:30px 0;
+  }
+  .stamp-quote::before{
+    content:"المبدأ";
+    position:absolute;
+    top:-12px;right:24px;
+    background:var(--bg-deep);
+    padding:0 12px;
+    font-size:12px;color:var(--gold);
+    letter-spacing:1px;font-weight:700;
+  }
+  .stamp-quote.question::before{content:"السؤال المحوري";}
+  .stamp-quote p{
+    font-size:18px;
+    color:var(--gold-soft);
+    font-weight:600;
+    margin:0;
+    line-height:1.85;
+  }
+
+  /* ===== Comparison table ===== */
+  .ledger-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:28px 0 36px;
+    font-size:14.5px;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .ledger-table caption{
+    text-align:right;
+    font-size:12px;
+    color:var(--ink-dim);
+    padding:10px 4px;
+    caption-side:bottom;
+  }
+  .ledger-table th{
+    background:var(--bg-panel-2);
+    color:var(--gold-soft);
+    font-weight:700;
+    padding:14px 16px;
+    text-align:right;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+  }
+  .ledger-table td{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+    color:#d3deef;
+    vertical-align:top;
+  }
+  .ledger-table tr:last-child td{border-bottom:none;}
+  .ledger-table td:first-child, .ledger-table th:first-child{
+    color:var(--gold-soft);font-weight:600;
+    width:26%;
+  }
+  .tag{
+    display:inline-block;font-size:11.5px;font-weight:700;
+    padding:3px 10px;border-radius:20px;margin-bottom:4px;
+  }
+  .tag.wip{background:rgba(95,174,138,0.15);color:var(--green);}
+  .tag.recv{background:rgba(196,113,92,0.15);color:var(--red);}
+
+  /* ===== Worked example ===== */
+  .case-panel{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:32px;
+    margin:30px 0;
+  }
+  .case-panel .case-title{
+    font-size:13px;color:var(--gold);letter-spacing:.5px;font-weight:700;
+    margin-bottom:18px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .case-title::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);}
+  .case-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:18px;
+    margin-bottom:22px;
+  }
+  .case-cell{
+    background:var(--bg-panel-2);
+    border:1px solid var(--line-soft);
+    border-radius:8px;
+    padding:16px;
+    text-align:center;
+  }
+  .case-cell .v{
+    font-family:'Markazi Text',serif;
+    font-size:26px;font-weight:700;color:#fff;
+    direction:ltr;display:block;
+  }
+  .case-cell .l{font-size:12.5px;color:var(--ink-muted);margin-top:6px;}
+  .case-flow{
+    background:var(--bg-panel-2);
+    border-radius:8px;padding:20px 22px;
+    font-size:15px;color:#cdd8ee;
+  }
+  .case-flow .eq{
+    direction:ltr;text-align:right;
+    font-family:'Markazi Text',serif;
+    font-size:19px;color:var(--gold-soft);font-weight:700;
+    margin:10px 0;
+  }
+  .result-banner{
+    margin-top:18px;
+    background:rgba(201,162,74,0.1);
+    border:1px solid var(--gold);
+    border-radius:8px;
+    padding:16px 20px;
+    font-size:15.5px;
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+
+  /* ===== Numbered steps ===== */
+  .steps{counter-reset:step;margin:24px 0;}
+  .step{
+    display:flex;gap:18px;margin-bottom:22px;
+    padding-bottom:22px;border-bottom:1px dashed var(--line-soft);
+  }
+  .step:last-child{border-bottom:none;}
+  .step-num{
+    counter-increment:step;
+    flex-shrink:0;
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--gold);
+    color:var(--gold-soft);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:14px;
+    font-family:'Markazi Text',serif;
+  }
+  .step-num::before{content:counter(step);}
+  .step-body h4{margin:2px 0 6px;color:#fff;font-size:16px;}
+  .step-body p{margin:0;font-size:15px;color:var(--ink-muted);}
+
+  /* ===== Verdict / closing ===== */
+  .verdict{
+    background:linear-gradient(135deg, var(--bg-panel-2), var(--bg-panel));
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:38px 36px;
+    margin:40px 0 60px;
+  }
+  .verdict h3{border:none;padding:0;margin:0 0 16px;font-size:21px;}
+  .verdict ul{margin:0;padding-right:20px;}
+  .verdict li{color:#dbe5f6;}
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--line);
+    margin-top:40px;
+    padding:36px 6vw 40px;
+    text-align:center;
+  }
+  footer .fname{
+    font-family:'Markazi Text',serif;
+    font-size:20px;font-weight:700;color:var(--gold-soft);
+    margin-bottom:6px;
+  }
+  footer .frole{
+    font-size:13.5px;color:var(--ink-muted);
+    margin-bottom:14px;
+  }
+  footer .fsys{
+    font-size:12px;color:var(--ink-dim);
+    letter-spacing:.5px;
+  }
+  footer .fdiv{
+    width:60px;height:1px;background:var(--gold);
+    margin:18px auto;opacity:.5;
+  }
+
+  @media(max-width:640px){
+    .section-head{gap:10px;}
+    .section-num{font-size:34px;min-width:40px;}
+    .abstract-box{padding:20px;}
+    .case-panel{padding:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="brand">
+    <div class="brand-mark">ع ق</div>
+    <div class="brand-text"><b>عبدالفتاح قشطي</b>مطور نظم ورقابة مالية </div>
+  </div>
+  <div class="masthead-meta">
+    <span>بحث عن نشاط المقاولات والإئتمان</span>
+    <span>المحاسبة عن عقود الإنشاءات</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="kicker">IFRS 15 · المحاسبة عن عقود المقاولات</div>
+  <h1 class="title">حينما تتجاوز التكاليف <em>جدران العقود</em><br>كيف تحمي قائمة دخلك من الانهيار الوهمي؟</h1>
+  <p class="subtitle">لماذا يخطئ مدراء الائتمان في فهم حسابات المقاولات؟ ولماذا يتحول "مقلوب نسبة التأمين" من بند هامشي في المستخلص إلى الدليل القانوني والمحاسبي الحاسم على استحقاق الإيراد؟</p>
+
+  <div class="abstract-box">
+    <span class="label">ملخص تنفيذي</span>
+    يناقش هذا البحث الفجوة بين الفكر الائتماني التقليدي الجامد — الذي يقرأ أرصدة المقاولات بمنطق "حد ائتماني" مغلق — وبين الواقع التعاقدي الطاحن لشركات المقاولات في ظل تطبيق المعيار الدولي IFRS 15. كما يتناول التكييف المحاسبي والقانوني لخصم التأمين النهائي المتكرر على كل مستخلص جارٍ تقريبًا، وفاتورته الضريبية الإجبارية الصادرة بالقيم الفعلية، باعتبارهما دليلًا قاطعًا على نشوء حق إيراد مستحق، حتى لو لم يدخل البنك أي تحصيل نقدي بعد ولم يصدر ملحق عقد رسمي — وذلك من خلال حالة عملية واقعية: عقد أصلي بقيمة 30 مليون جنيه، وتكلفة فعلية منصرفة تبلغ 63 مليون جنيه حتى تاريخه، مع التأكيد على أن الحصر النهائي وحده — لا الملحق التعاقدي — هو ما يحسم القيمة الفعلية للعقد، وأن مبدأ المقابلة بين المصروف والإيراد واجب التطبيق درءًا لظهور خسارة تشغيلية وهمية في قائمة الدخل.
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- 01 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>أزمة الفكر الائتماني أمام واقع المقاولات</h2>
+    </div>
+    <div class="stamp-quote question" style="margin-top:0;">
+      <p style="font-size:20px;">لماذا يخطئ مدراء الائتمان في فهم حسابات المقاولات؟</p>
+    </div>
+    <p>
+      يتعامل أغلب مدراء الائتمان في الجهات الممولة والموردة مع شركة المقاولات بعقلية "السقف المغلق": العقد قيمته الاسمية المكتوبة على الورق، وأي منصرف يتجاوز هذا السقف هو في نظرهم <b>إنذار ائتماني</b>، ومؤشر على تعثر العميل أو سوء إدارته المالية. هذه القراءة صحيحة في عقود البيع التقليدية ذات التسليم الفوري، لكنها قراءة خاطئة جوهريًا حين تُسقط على عقود الإنشاء طويلة الأجل.
+    </p>
+    <p>
+      عقد المقاولة ليس التزامًا بتسليم سلعة بقيمة ثابتة، بل هو <b>إطار قانوني متحرك</b> يحكم علاقة تنفيذية ممتدة، تتغير فيها الكميات والأسعار والنطاق باستمرار عبر أوامر التغيير (Variation Orders)، والأعمال الإضافية الفعلية المنفذة على الأرض، والمستخلصات الجارية. حين تقرأ جهة الائتمان "المنصرف" دون أن تفهم أن هذا الرقم يعكس <b>تكلفة عمل فعلي تم تنفيذه وتسليمه ميدانيًا</b>، فإنها تخلط بين عجز مالي حقيقي وبين فجوة توثيقية بحتة بين الإنجاز الفعلي والتغطية التعاقدية الرسمية.
+    </p>
+    <h3>الخلل المنهجي في القراءة التقليدية</h3>
+    <p>
+      الخطأ المتكرر أن مدير الائتمان يقارن "المنصرف" بـ"قيمة العقد الأصلي" فقط، متجاهلًا أن معيار IFRS 15 لا يعترف بالإيراد على أساس التوقيع التعاقدي، بل على أساس <b>نقل السيطرة على الأصل للعميل بمرور الوقت</b> (Transfer of Control Over Time)، وفقًا لنسبة الإتمام الفعلية المُقاسة بمدخلات التكلفة (Cost-to-Cost Method) في الأغلب الأعم من عقود الإنشاء. بعبارة أخرى: الإيراد يتبع الإنجاز الفعلي، لا الورقة الموقعة.
+    </p>
+    <p>
+      حين يتجاوز المنصرف الفعلي قيمة العقد الأصلي دون صدور ملحق رسمي، فإن السؤال المهني الصحيح ليس "لماذا تجاوزت الشركة حدها التعاقدي؟"، بل: <b>هل هذا التجاوز يمثل عملًا منفذًا فعليًا ومُستلمًا من جهة الإسناد عبر مستخلصات معتمدة، أم تجاوزًا غير موثق بلا أساس تعاقدي؟</b> الفارق بين السؤالين هو الفارق بين قراءة مالية سليمة وقراءة ائتمانية متسرعة قد تُجمّد تمويل شركة تنفذ عملها بكفاءة تامة.
+    </p>
+  </div>
+
+  <!-- 02 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>مقلوب نسبة التأمين وفاتورة الإجبار الضريبي: من خصم هامشي إلى دليل إثبات</h2>
+    </div>
+    <p>
+      في الممارسة التعاقدية لقطاع المقاولات، تقتطع جهة الإسناد نسبة تأمين (عادة 5%) من قيمة كل مستخلص جارٍ، تُحجز كضمان لحسن التنفيذ ولا تُصرف إلا بعد التسليم الابتدائي أو النهائي للأعمال. هذا الاقتطاع — رغم بساطته الظاهرية — يحمل قوة قانونية وضريبية يندر أن يلتفت إليها مدراء الائتمان.
+    </p>
+    <div class="stamp-quote">
+      <p>
+        خصم التأمين لا يحدث مرة واحدة على مستخلص استثنائي، بل يتكرر على <b>كل مستخلص جارٍ تقريبًا</b> طوال عمر العقد، باعتباره اقتطاعًا نمطيًا ملازمًا لكل اعتماد مالي من جهة الإسناد. ومن هنا فإن "مقلوب نسبة التأمين" ليس عملية حسابية لمستخلص واحد، بل معادلة تراكمية:
+      </p>
+    </div>
+    <div class="case-flow" style="margin:18px 0 26px;">
+      <div class="eq">إجمالي قيمة الأعمال المُعتمدة فعليًا = مجموع التأمينات النهائية المخصومة على كل المستخلصات الجارية × (100 ÷ 5)</div>
+      هذه المعادلة هي الأداة الكاشفة لإجمالي ما أقرّت به جهة الإسناد رسميًا من أعمال منفذة، وهي غالبًا ما تتجاوز قيمة العقد الأصلي، بصرف النظر عن وجود ملحق عقد ساري أو غيابه.
+    </div>
+    <h3>لماذا فاتورة التأمين دليل قاطع؟</h3>
+    <ul>
+      <li><b>الإجبار الضريبي يولّد أثرًا قانونيًا تلقائيًا:</b> فاتورة التأمين الضريبية مُحرَّرة وفق منظومة الفاتورة الإلكترونية، ومُرسلة إلكترونيًا لمصلحة الضرائب، وهو ما يجعلها سجلًا رسميًا لا يمكن للجهة المُسندة لاحقًا إنكار وجود المستخلص الذي اقتُطع منه هذا التأمين، أو الزعم بأن الأعمال محل النزاع لم تُعتمد.</li>
+      <li><b>الاقتطاع لا يُحسب إلا على عمل مُنجز ومُسلَّم:</b> لا تقتطع جهة الإسناد تأمينًا على عمل لم يُنفذ أو لم تُقر باستلامه؛ فالتأمين بطبيعته ضمان لجودة عمل قائم بالفعل، لا تحوّط على عمل مستقبلي.</li>
+      <li><b>الفجوة بين "الاعتماد الفني" و"التوثيق التعاقدي" فجوة إدارية لا محاسبية:</b> تأخر جهة الإسناد عن إصدار ملحق العقد أو أمر التعجيل لا ينفي وجود الإيراد المكتسب محاسبيًا؛ فالمعيار IFRS 15 يفصل بوضوح بين توقيت الإقرار القانوني الشكلي وبين توقيت اكتساب الحق في المقابل (Entitlement to Consideration) المستمد من الأداء الفعلي للالتزام.</li>
+    </ul>
+
+    <h3>إجبار ضريبي مُعجَّل.. وتحصيل نقدي مُتأخر</h3>
+    <p>
+      المفارقة العملية الأخطر هنا أن منظومة الفاتورة الإلكترونية <b>تُجبر المقاول على إصدار الفاتورة الضريبية بالقيم الفعلية فور اعتماد الخصم</b>، بينما يستغرق إعداد المستخلص الرسمي المُوقَّع من جهة الإسناد فترة قد تتجاوز الشهرين. والنتيجة أن الفاتورة قد تكون صادرة فعليًا بتاريخ سابق، دون أن يدخل البنك مليمًا واحدًا من قيمتها حتى تاريخ إعداد القوائم. هذا لا يُسقط الإيراد ولا يُحوّله إلى "غير مستحق" — بل يُحدّد فقط <b>تصنيفه الصحيح</b>: ما دامت الفاتورة الضريبية قد صدرت فعليًا، فإن الحق في المقابل أصبح غير مشروط بأي أداء إضافي، وينتقل الرصيد من "أصل عقد" إلى <b>"عملاء" حقيقيين (ذمم مدينة تجارية)</b>، وإن كان التحصيل النقدي لم يتم بعد. أما الجزء المُنفَّق فعليًا والذي لم يُدرج بعد في أي مستخلص أو فاتورة بسبب فجوة الشهرين، فيبقى وحده هو "أصل العقد" (Contract Asset) بالمعنى الدقيق للمعيار.
+    </p>
+    <p>
+      ولهذا فإن <b>الحصر النهائي</b> — لا الملحق التعاقدي — هو الإجراء الذي يحسم القيمة النهائية الفعلية للعقد على أرض الواقع؛ فالملحق توثيق شكلي قد يتأخر لأسباب إدارية بحتة، بينما الحصر النهائي تسوية فنية ومالية تُقارن فيها الكميات والقيم المُنفذة فعليًا بما تم اعتماده عبر المستخلصات والفواتير المتعاقبة، وهو ما يُحدّد القيمة الحقيقية للعقد بصرف النظر عن سقفه الاسمي الأصلي.
+    </p>
+    <p>
+      من هنا تنبع الضرورة المحاسبية الحاكمة لمبدأ المقابلة (Matching Principle): إذا تحمّلت الشركة تكلفة فعلية موثقة بمستخلصات وفواتير ضريبية معتمدة، ولم تُقابل هذه التكلفة بإيراد مُعترف به بالقدر نفسه، فإن قائمة التشغيل ستُظهر خسارة وهمية، تنتقل بالتبعية إلى قائمة الدخل، رغم أن الشركة نفّذت عملًا حقيقيًا ومُقرًّا به رسميًا. <b>غياب ملحق العقد لا يُبرر مطلقًا غياب المقابلة بين المصروف الفعلي والإيراد المستحق</b> — لأن المعيار IFRS 15 يقيس الإيراد بالأداء الفعلي المُثبت بالمستندات، لا بسقف العقد الاسمي.
+    </p>
+    <h3>التكييف المحاسبي المترتب</h3>
+    <p>
+      وفقًا للفقرات (105-107) من IFRS 15، حين ينفذ المقاول عملًا ويُصدر عنه فاتورة ضريبية فعلية إثر اعتماد المستخلص وخصم تأمينه، فإن الحق في المقابل يصبح <b>غير مشروط</b> بأي أداء إضافي من جانبه، فيُصنَّف هذا الرصيد محاسبيًا كـ"عملاء" (ذمم مدينة تجارية) حتى لو لم يُحصَّل نقدًا بعد. أما الجزء من التكلفة الفعلية المُنفقة الذي لم يدخل بعد في دورة مستخلص أو فاتورة — بسبب فجوة الشهرين الزمنية في إعداد المستخلصات — فهو وحده الذي يستحق تصنيف <b>"أصل عقد" (Contract Asset)</b>، لأن الحق في مقابله لا يزال مشروطًا باستكمال إجراءات الاعتماد الإداري. وفي الحالتين معًا، يُستبعد الرصيدان تمامًا من بند "أعمال تحت التنفيذ" غير المعتمد، ويُدرجان تحت بند مركب في قائمة المركز المالي: <b>"عملاء وإيرادات مستحقة"</b>.
+    </p>
+  </div>
+
+  <!-- 03 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2> الحالة العملية: عقد 30 مليونًا.. ومصروف فعلي 63 مليونًا بلا تحصيل نقدي-الإيردات فعليا تتجاوز قيمة العقود</h2>
+    </div>
+    <p>
+      لتقريب الصورة لمدير الائتمان، نطرح حالة واقعية نموذجية تتكرر في عقود الإسناد من الباطن وعقود المقاولات الحكومية على حد سواء، حيث لا يُخصم التأمين مرة واحدة على مستخلص استثنائي، بل يتكرر على كل مستخلص جارٍ تقريبًا، وتُصدر عنه فاتورة ضريبية إجبارية فورية رغم عدم اكتمال التحصيل:
+    </p>
+
+    <div class="case-panel">
+      <div class="case-title">معطيات الحالة</div>
+      <div class="case-grid">
+        <div class="case-cell"><span class="v">30M</span><span class="l">القيمة التعاقدية الأصلية (ج.م)</span></div>
+        <div class="case-cell"><span class="v">63M</span><span class="l">إجمالي التكلفة الفعلية المنصرفة حتى تاريخه (ج.م)</span></div>
+        <div class="case-cell"><span class="v">صفر</span><span class="l">أوامر تعجيل أو ملاحق عقد صادرة</span></div>
+        <div class="case-cell"><span class="v">صفر</span><span class="l">تحصيل نقدي بالبنك حتى تاريخه رغم صدور الفواتير</span></div>
+      </div>
+
+      <div class="case-flow">
+        جهة الإسناد تخصم تأمينًا نهائيًا 5% على كل مستخلص جارٍ يُعتمد، وتُصدر عنه فاتورة ضريبية إجبارية بالقيمة الكاملة فور الاعتماد:
+        <div class="eq">مجموع التأمينات النهائية المخصومة على المستخلصات الجارية × (100 ÷ 5) = إجمالي قيمة الأعمال المُعتمدة فعليًا</div>
+        وهذا المجموع هو ما يُقارب أو يفسّر فعليًا فجوة الـ 33 مليون جنيه بين قيمة العقد الأصلي والتكلفة الفعلية المنصرفة (63,000,000 − 30,000,000 = 33,000,000 ج.م) — أي أن جهة الإسناد أقرّت ضمنيًا، عبر آلية التأمين والفاتورة الإجبارية، بأعمال تتجاوز السقف الاسمي للعقد، دون أن يصدر عن ذلك ملحق رسمي حتى تاريخه.
+      </div>
+
+      <div class="result-banner">
+        ◆ المفارقة: الفواتير الضريبية على هذه الزيادة صادرة فعليًا بتواريخ سابقة، لكن إعداد المستخلص الرسمي المُوقَّع يستغرق أكثر من شهرين، ولم تدخل أي نقدية للبنك بعد. هذا لا ينفي الإيراد، بل يُحدّد فقط موضعه الصحيح: إيراد مُعترف به ومُفوتر، لكنه ذمة مدينة (عميل) غير مُحصَّلة بعد — لا "أعمال تحت التنفيذ" غير معتمدة.
+      </div>
+    </div>
+
+    <h3>المعالجة المحاسبية الإلزامية بموجب IFRS 15</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>تحديد الالتزام بالأداء وقياس نسبة الإتمام</h4>
+          <p>تُقاس نسبة الإتمام بطريقة التكلفة إلى التكلفة (Cost-to-Cost) على إجمالي التكلفة الفعلية المنفقة 63 مليون جنيه، وليس على سقف العقد الأصلي 30 مليون جنيه، باعتبار أن نطاق العمل الفعلي قد توسّع بأمر ضمني ومُقرّ من جهة الإسناد عبر اعتماد المستخلصات المتعاقبة وخصم التأمين المتكرر عليها.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>تطبيق مبدأ المقابلة كحارس لقائمة الدخل</h4>
+          <p>كل جنيه تكلفة فعلية مُثبت بمستخلص وفاتورة ضريبية يجب أن يُقابله إيراد مُعترف به بالقدر نفسه، بصرف النظر عن غياب ملحق العقد. تجاهل هذه المقابلة يُنتج خسارة تشغيلية وهمية في قائمة الدخل، رغم أن الشركة نفّذت عملًا حقيقيًا ومُقرًّا به رسميًا من جهة الإسناد.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>الفصل بين "عملاء مفوترين غير مُحصَّلين" و"أصل عقد غير مُفوتر"</h4>
+          <p>كل جزء صدرت عنه فاتورة ضريبية فعلية إثر اعتماد المستخلص وخصم تأمينه يُصنَّف "عملاء" (ذمم مدينة تجارية) حتى لو لم يدخل البنك مليمًا منه بعد. أما الجزء من التكلفة الفعلية الذي لم يدخل بعد في دورة مستخلص أو فاتورة، بسبب فجوة الشهرين في الإعداد، فهو وحده "أصل عقد" (Contract Asset) حقيقي.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>استبعاد التصنيف ضمن "أعمال تحت التنفيذ"</h4>
+          <p>لا يجوز إبقاء أي من الرصيدين السابقين ضمن بند "أعمال تحت التنفيذ" (WIP) داخل المخزون، لأن هذا التصنيف مخصص حصرًا لتكلفة لم تدخل بعد أي دورة اعتماد أو فوترة من جهة الإسناد. أما هنا، فجهة الإسناد أقرّت بالقيمة فعليًا عبر آلية التأمين المتكررة والفاتورة الضريبية الإجبارية، فانتقل الأصل من "مخزون تكلفة" إلى "حق تعاقدي في مقابل".</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num"></div>
+        <div class="step-body">
+          <h4>الحصر النهائي كحاسم وحيد للقيمة الفعلية للعقد</h4>
+          <p>عند صدور الحصر النهائي المتفق عليه بين الطرفين — لا ملحق العقد — تُحسم القيمة الفعلية الكاملة للعقد، ويُعاد عندها تسوية أي فروقات متبقية بين ما فُوتر فعليًا وما تم اعتماده نهائيًا، تماشيًا مع الفقرة 108 من IFRS 15.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>الفرق الجوهري: أعمال تحت التنفيذ vs العملاء في قوائم المقاولات</h2>
+    </div>
+    <p>
+      الخلط بين هذين البندين هو أكثر الأخطاء شيوعًا في القوائم المالية لشركات المقاولات، ومصدر رئيسي لسوء تقدير المخاطر الائتمانية من الأطراف الخارجية. الجدول التالي يضع الفروق الجوهرية بينهما وفق منطق IFRS 15:
+    </p>
+
+    <table class="ledger-table">
+      <caption>مرجعية التصنيف وفق الفقرات 105–108 من المعيار الدولي IFRS 15</caption>
+      <thead>
+        <tr>
+          <th>وجه المقارنة</th>
+          <th><span class="tag wip">أعمال تحت التنفيذ</span><br>Work in Progress</th>
+          <th><span class="tag recv">عملاء / إيرادات مستحقة</span><br>Receivables / Contract Assets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>الطبيعة المحاسبية</td>
+          <td>بند مخزون (تكلفة متراكمة) ضمن الأصول المتداولة، لم يتحول بعد إلى إيراد معترف به</td>
+          <td>أصل ناتج عن إيراد مُعترف به فعليًا وفقًا لنسبة الإتمام، لكنه لم يتحول بعد إلى حق تحصيل غير مشروط</td>
+        </tr>
+        <tr>
+          <td>أساس الإثبات</td>
+          <td>التكلفة الفعلية المنفقة (مواد، أجور، مقاولين باطن) دون اعتراف بهامش ربح</td>
+          <td>التكلفة + هامش الربح المُحقق وفق نسبة الإتمام، مخصومًا منها أي دفعات أو فواتير سابقة</td>
+        </tr>
+        <tr>
+          <td>درجة الإقرار من العميل</td>
+          <td>لم يُقر العميل بعد بقيمة هذه الأعمال أو يعتمدها في مستخلص</td>
+          <td>أُقرّت من العميل ضمنيًا أو صراحة (مستخلص، فاتورة، خصم تأمين موثق)</td>
+        </tr>
+        <tr>
+          <td>الشرط المعلّق على التحصيل</td>
+          <td>التسليم والاعتماد الفني، ثم الفوترة، ثم استحقاق التحصيل</td>
+          <td>استكمال إجراءات إدارية (مستخلص ختامي/حصر نهائي) فقط — لا شرط أداء متبقٍّ</td>
+        </tr>
+        <tr>
+          <td>الأثر الضريبي</td>
+          <td>لا يستوجب فاتورة ضريبية؛ لا يدخل في الإقرار الضريبي كإيراد مستحق</td>
+          <td>غالبًا مرتبط بفاتورة ضريبية صادرة فعليًا وإجبارية فور اعتماد المستخلص وخصم تأمينه، حتى قبل دخول أي تحصيل نقدي للبنك</td>
+        </tr>
+        <tr>
+          <td>تصنيفه في قائمة المركز المالي</td>
+          <td>ضمن "المخزون" أو بند مستقل "أعمال تحت التنفيذ" في الأصول المتداولة</td>
+          <td>ضمن "العملاء وأرصدة مدينة أخرى"؛ الجزء المفوتر فعليًا "عملاء"، والجزء غير المفوتر بعد "إيرادات مستحقة / أصل عقد"</td>
+        </tr>
+        <tr>
+          <td>مخاطر القراءة الائتمانية الخاطئة</td>
+          <td>المبالغة في تقدير السيولة المتوقعة قبل اعتماد العميل الفعلي للأعمال</td>
+          <td>الخلط بين "عدم التحصيل النقدي" و"عدم استحقاق الإيراد"، رغم وجود فاتورة ضريبية فعلية تثبت إقرار جهة الإسناد بالعمل المنفذ</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      الخلاصة العملية لمدير الائتمان: حين يُرصد تجاوز للمنصرف عن قيمة العقد الأصلي، فإن السؤال الحاسم ليس "هل يوجد ملحق عقد؟"، بل <b>"هل يوجد أثر تعاقدي وضريبي يثبت إقرار جهة الإسناد بالعمل المنفذ؟"</b> — وخصم التأمين النهائي مع فاتورته الضريبية هو بالضبط هذا الأثر.
+    </p>
+  </div>
+
+  <div class="verdict">
+    <h3>توصيات للتطبيق العملي</h3>
+    <ul>
+      <li>لا تُقيّم تجاوز المنصرف عن قيمة العقد بمعزل عن فحص مستندات المستخلصات وفواتير التأمين الضريبية المتكررة عليها.</li>
+      <li>لا تخلط بين "عدم التحصيل النقدي" و"عدم استحقاق الإيراد"؛ صدور الفاتورة الضريبية الفعلية دليل استحقاق، وتأخر دخول البنك مسألة تحصيل لا اعتراف.</li>
+      <li>طبّق مبدأ المقابلة بصرامة: كل تكلفة فعلية موثقة بمستخلص ومُحملة بفاتورة ضريبية يجب أن تُقابلها إيراد مُعترف به بالقدر نفسه، وإلا ظهرت خسارة تشغيلية وهمية لا أساس حقيقي لها.</li>
+      <li>اطلب من إدارة الحسابات تقديم تسوية تفصيلية (Reconciliation) تفصل الجزء المفوتر فعليًا (عملاء) عن الجزء غير المفوتر بعد (أصل عقد)، قبل أي قرار ائتماني.</li>
+      <li>اعتبر <b>الحصر النهائي</b> — لا ملحق العقد — هو الإجراء الفني والمالي الذي يحسم القيمة الفعلية الكاملة للعقد ويُغلق أي فجوة متبقية بين ما تم تنفيذه وما تم اعتماده رسميًا.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="fdiv"></div>
+  <div class="fname">عبدالفتاح قشطي</div>
+  <div class="frole">مطور نظم ورقابة مالية</div>
+  <div class="fsys">المنظومة الحديثة للإدارة المالية</div>
+</footer>
+
+</body>
+</html>
